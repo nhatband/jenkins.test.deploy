@@ -1,0 +1,37 @@
+﻿spec:
+  type: NodePort
+  selector:
+    app: jenkins-test-deploy
+    tier: jenkins-test-deploy
+  ports:
+  - protocol: TCP
+    port: 5566
+    targetPort: 44373
+metadata:
+  name: jenkins-test-deploy
+  labels:
+    app: jenkins-test-deploy
+kind: Service
+apiVersion: v1
+
+spec:
+  template:
+    metadata:
+      labels:
+        app: jenkins-test-deploy
+        tier: jenkins-test-deploy
+    spec:
+      dnsConfig:
+        nameservers:
+        - 8.8.8.8
+        - 1.1.1.1
+      containers:
+      - image: 'docker push nhatdev/jenkins.test.deploy:latest'
+        name: jenkins-test-deploy
+        resources:
+          limits:
+            memory: 1500Mi
+            cpu: "3.0"
+          requests:
+            memory: 500Mi
+            cpu: "1"
