@@ -19,8 +19,6 @@ node(node_label) {
 
         // deploy
         stage("deploy"){
-            sh "sed -i 's|{{tag}}|${tag}|g' deployment.yaml \
-            && sed -i 's|{{registry_host}}|${registry_host}|g' deployment.yaml \
-            && kubectl ${env.token_kube} apply -f deployment.yaml"
+            sh "kubectl ${env.token_kube} apply -f deployment.yaml"
         }
 }
