@@ -12,10 +12,6 @@ node(node_label) {
             bat "docker build --tag nhatdev/jenkins.test.deploy:latest --file Dockerfile ."
         }
 
-        // push
-        stage("push"){
-            bat "docker push nhatdev/jenkins.test.deploy:latest"
-        }
 
         // deploy
         stage("deploy"){
