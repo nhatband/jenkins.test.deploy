@@ -15,6 +15,6 @@ node(node_label) {
 
         // deploy
         stage("deploy"){
-            bat "kubectl ${env.token_kube} apply -f deployment.yaml"
+            bat "kubectl apply -f deployment.yaml"
         }
 }
