@@ -26,7 +26,7 @@ spec:
         - 8.8.8.8
         - 1.1.1.1
       containers:
-      - image: 'docker push nhatdev/jenkins.test.deploy:latest'
+      - image: 'docker push ${registry_host}/jenkins.test.deploy:${tag}'
         name: jenkins-test-deploy
         resources:
           limits:
