@@ -1,4 +1,4 @@
-Jenkinsfile (Declarative Pipeline)
+// Jenkinsfile (Declarative Pipeline)
 /* Requires the Docker Pipeline plugin */
 pipeline {
     agent { docker { image 'mcr.microsoft.com/dotnet/samples:aspnetapp' } }
